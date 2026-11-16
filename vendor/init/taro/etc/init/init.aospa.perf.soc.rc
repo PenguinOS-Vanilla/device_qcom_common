@@ -3,13 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-on boot
-    # Pentas (system_app) sets the GPU clock range through devfreq
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-
 on property:vendor.post_boot.parsed=1
     # CPUSets
     write /dev/cpuset/foreground/cpus 0-6
